@@ -169,7 +169,6 @@ export default function Home() {
               and
               improvement.
             </p>
-
             <p className="text-lg text-muted-foreground">
               My mission is to create elegant, efficient, and scalable solutions that solve real-world problems. Let’s
               build a smarter, better-connected world — one line of code at a time.
