@@ -16,6 +16,7 @@ import {
   Code as HtmlIcon,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const navItems = [
   { title: 'About', href: '#about' },
@@ -26,19 +27,19 @@ const navItems = [
 ];
 
 const skills = [
-  { name: 'HTML', icon: HtmlIcon },
-  { name: 'CSS', icon: Css },
-  { name: 'JavaScript', icon: Javascript },
-  { name: 'Bootstrap', icon: Bot },
-  { name: 'React', icon: ReactIcon },
-  { name: 'Node.js', icon: Terminal },
-  { name: 'PHP', icon: Php },
-  { name: 'Git', icon: Terminal },
-  { name: 'GitHub', icon: Github },
-  { name: 'Firebase', icon: Firebase },
-  { name: 'SQL', icon: Sql },
-  { name: 'Python', icon: Python },
-  { name: 'Arduino IoT', icon: ArduinoIoT },
+  { name: 'HTML', icon: HtmlIcon, category: 'Frontend' },
+  { name: 'CSS', icon: Css, category: 'Frontend' },
+  { name: 'JavaScript', icon: Javascript, category: 'Frontend' },
+  { name: 'Bootstrap', icon: Bot, category: 'Frontend' },
+  { name: 'React', icon: ReactIcon, category: 'Frontend' },
+  { name: 'Node.js', icon: Terminal, category: 'Backend' },
+  { name: 'PHP', icon: Php, category: 'Backend' },
+  { name: 'Git', icon: Terminal, category: 'Tools' },
+  { name: 'GitHub', icon: Github, category: 'Tools' },
+  { name: 'Firebase', icon: Firebase, category: 'Backend' },
+  { name: 'SQL', icon: Sql, category: 'Backend' },
+  { name: 'Python', icon: Python, category: 'Backend' },
+  { name: 'Arduino IoT', icon: ArduinoIoT, category: 'Other' },
 ];
 
 export default function Home() {
@@ -55,7 +56,7 @@ export default function Home() {
   useEffect(() => {
     const typedTextElement = document.getElementById('typed-text');
     if (typedTextElement) {
-      const typed = new Typed('#typed-text', {
+      const typed = new (window as any).Typed('#typed-text', {
         strings: ["Hi! I'm Ernie Saavedra Jr"],
         typeSpeed: 50,
         showCursor: true,
@@ -65,7 +66,7 @@ export default function Home() {
     }
 
     return () => {
-      if (typedTextElement && (typed as any).destroy) {
+      if (typedTextElement && (window as any).Typed) {
         (typed as any).destroy();
       }
     };
@@ -134,12 +135,15 @@ export default function Home() {
 
       <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">Skills</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill) => (
-            <div key={skill.name} className="flex flex-col items-center">
-              <skill.icon className="h-6 w-6 mb-2" />
-              <div>{skill.name}</div>
-            </div>
+            <Card key={skill.name} className="hover:scale-105 transition-transform duration-200">
+              <CardContent className="flex flex-col items-center p-6">
+                <skill.icon className="h-8 w-8 mb-2 text-muted-foreground" />
+                <CardTitle className="text-lg">{skill.name}</CardTitle>
+                <CardDescription className="text-sm text-muted-foreground">{skill.category}</CardDescription>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </section>
