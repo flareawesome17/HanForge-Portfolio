@@ -44,7 +44,7 @@ const skills = [
 
 export default function Home() {
   return (
-    
+    <>
       <SiteHeader navItems={navItems} />
 
       <section id="hero" className="container py-32 flex flex-col items-center justify-center text-center">
@@ -55,37 +55,50 @@ export default function Home() {
         <Button>Learn More</Button>
       </section>
 
-      <section id="about" className="container py-24 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold">About</h2>
-        <p className="mt-4">Learn more about me.</p>
+      <section id="about" className="container py-16">
+        <h2 className="text-3xl font-semibold mb-4">
+          About
+        </h2>
+        Learn more about me.
       </section>
 
-      <section id="skills" className="container py-24 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold">Skills</h2>
-        <div className="mt-8 grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
+      <section id="skills" className="container py-16">
+        <h2 className="text-3xl font-semibold mb-4">
+          Skills
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {skills.map((skill) => (
-            
+            <div key={skill.name} className="flex flex-col items-center justify-center p-4 rounded-lg shadow-md">
               <skill.icon className="h-6 w-6 mb-2" />
-              <p className="text-sm">{skill.name}</p>
-            
+              <div className="text-sm font-medium">
+                {skill.name}
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      <section id="projects" className="container py-24 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold">Projects</h2>
-        <p className="mt-4">Check out my latest projects.</p>
+      <section id="projects" className="container py-16">
+        <h2 className="text-3xl font-semibold mb-4">
+          Projects
+        </h2>
+        Check out my latest projects.
       </section>
 
-      <section id="contact" className="container py-24 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold">Contact</h2>
-        <p className="mt-4">Get in touch with me.</p>
+      <section id="contact" className="container py-16">
+        <h2 className="text-3xl font-semibold mb-4">
+          Contact
+        </h2>
+        Get in touch with me.
       </section>
 
-      <section id="resume" className="container py-24 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold">Resume</h2>
-        <p className="mt-4">View my resume.</p>
+      <section id="resume" className="container py-16">
+        <h2 className="text-3xl font-semibold mb-4">
+          Resume
+        </h2>
+        View my resume.
       </section>
-    
+
+    </>
   );
 }
