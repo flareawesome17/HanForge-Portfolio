@@ -4,7 +4,7 @@ import SiteHeader from '@/components/SiteHeader';
 import { Button } from "@/components/ui/button";
 import {
   Rss as Css,
-  Javascript,
+  Subscript as Javascript,
   Bot,
   React as ReactIcon,
   FileCode2 as Php,
@@ -12,9 +12,9 @@ import {
   Github,
   Files as Firebase,
   Database as Sql,
-  Python,
+  Phone as Python,
   GraduationCap as ArduinoIoT,
-  Html as HtmlIcon
+  Code as HtmlIcon,
 } from 'lucide-react';
 
 
@@ -32,7 +32,7 @@ const skills = [
   { name: 'JavaScript', icon: Javascript },
   { name: 'Bootstrap', icon: Bot },
   { name: 'React', icon: ReactIcon },
-  { name: 'Node.js', icon: Terminal },
+  { name: 'Node.js', icon: Git },
   { name: 'PHP', icon: Php },
   { name: 'Git', icon: Git },
   { name: 'GitHub', icon: Github },
@@ -67,9 +67,9 @@ export default function Home() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {skills.map((skill) => (
-            <div key={skill.name} className="flex flex-col items-center justify-center p-4 rounded-lg shadow-md">
+            <div key={skill.name} className="flex flex-col items-center">
               <skill.icon className="h-6 w-6 mb-2" />
-              <div className="text-sm font-medium">
+              <div>
                 {skill.name}
               </div>
             </div>
