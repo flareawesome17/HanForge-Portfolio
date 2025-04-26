@@ -15,6 +15,7 @@ import {
   GraduationCap as ArduinoIoT,
   Code as HtmlIcon,
 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 const navItems = [
   { title: 'About', href: '#about' },
@@ -41,39 +42,48 @@ const skills = [
 ];
 
 export default function Home() {
+  const [typedText, setTypedText] = useState('');
+  const textToType = "Hi! I'm Ernie Saavedra Jr";
+  const typingSpeed = 50; // milliseconds per character
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    let charIndex = 0;
+
+    if (charIndex < textToType.length) {
+      timer = setTimeout(() => {
+        setTypedText(textToType.substring(0, charIndex + 1));
+        charIndex++;
+      }, typingSpeed);
+    }
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <SiteHeader navItems={navItems} />
 
-      <section
-        id="hero"
-        className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-center text-white"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dbpurstxt/image/upload/v1745557727/hanforge/profile_pictures/nwrp20kxuqblwdstnkgm.jpg')",
-        }}
-      >
+      <section id="hero" className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-center"
+        style={{ backgroundImage: `url("https://res.cloudinary.com/dbpurstxt/image/upload/v1745557727/hanforge/profile_pictures/nwrp20kxuqblwdstnkgm.jpg")` }}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 px-4">
-          <h1 className="text-5xl font-bold mb-4 font-dm-serif-text">HanForge Ernie Saavedra Jr</h1>
+          <h1 className="text-5xl font-bold mb-4 font-dm-serif-text">
+            {typedText}
+            <span className="blinking-cursor"></span>
+          </h1>
           <p className="text-lg text-muted-foreground mb-8 font-dm-serif-text">
             Full Stack Web Developer
           </p>
         </div>
       </section>
 
-      <section
-        id="about"
-        className="container py-16 flex flex-col items-center justify-center text-center"
-      >
+      <section id="about" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">About</h2>
         Learn more about me.
       </section>
 
-      <section
-        id="skills"
-        className="container py-16 flex flex-col items-center justify-center text-center"
-      >
+      <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">Skills</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {skills.map((skill) => (
@@ -85,26 +95,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="projects"
-        className="container py-16 flex flex-col items-center justify-center text-center"
-      >
+      <section id="projects" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">Projects</h2>
         Check out my latest projects.
       </section>
 
-      <section
-        id="blogs"
-        className="container py-16 flex flex-col items-center justify-center text-center"
-      >
+      <section id="blogs" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">Blogs</h2>
         Read my thoughts and insights.
       </section>
 
-      <section
-        id="contact"
-        className="container py-16 flex flex-col items-center justify-center text-center"
-      >
+      <section id="contact" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">Contact</h2>
         Get in touch with me.
       </section>
