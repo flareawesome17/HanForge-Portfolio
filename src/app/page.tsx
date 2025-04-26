@@ -4,7 +4,7 @@ import SiteHeader from '@/components/SiteHeader';
 import { Button } from "@/components/ui/button";
 import {
   Html,
-  Css,
+  Css3,
   Javascript,
   Bot,
   ReactIcon,
@@ -28,7 +28,7 @@ const navItems = [
 
 const skills = [
   { name: 'HTML', icon: Html },
-  { name: 'CSS', icon: Css },
+  { name: 'CSS', icon: Css3 },
   { name: 'JavaScript', icon: Javascript },
   { name: 'Bootstrap', icon: Bot },
   { name: 'React', icon: ReactIcon },
