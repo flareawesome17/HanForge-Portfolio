@@ -22,6 +22,7 @@ import {Button} from "@/components/ui/button";
 import {cn} from "@/lib/utils";
 import {Input} from "@/components/ui/input"
 import {Textarea} from "@/components/ui/textarea"
+import Image from "next/image";
 
 const navItems = [
   {title: 'About', href: '#about'},
