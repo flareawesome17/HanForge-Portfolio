@@ -1,13 +1,45 @@
+"use client";
+
 import SiteHeader from '@/components/SiteHeader';
 import { Button } from "@/components/ui/button";
+import {
+  Html,
+  Css,
+  Javascript,
+  Bot,
+  ReactIcon,
+  Nodejs,
+  Php,
+  Git,
+  Github,
+  Firebase,
+  Sql,
+  Python,
+} from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 
 const navItems = [
-  { title: 'Home', href: '/' },
-  { title: 'About', href: '/about' },
-  { title: 'Skills', href: '/skills' },
-  { title: 'Projects', href: '/projects' },
-  { title: 'Contact', href: '/contact' },
+  { title: 'About', href: '#about' },
+  { title: 'Skills', href: '#skills' },
+  { title: 'Projects', href: '#projects' },
+  { title: 'Contact', href: '#contact' },
   { title: 'Resume', href: '/resume' },
+];
+
+const skills = [
+  { name: 'HTML', icon: Html },
+  { name: 'CSS', icon: Css },
+  { name: 'JavaScript', icon: Javascript },
+  { name: 'Bootstrap', icon: Bot },
+  { name: 'React', icon: ReactIcon },
+  { name: 'Node.js', icon: Nodejs },
+  { name: 'PHP', icon: Php },
+  { name: 'Git', icon: Git },
+  { name: 'GitHub', icon: Github },
+  { name: 'Firebase', icon: Firebase },
+  { name: 'SQL', icon: Sql },
+  { name: 'Python', icon: Python },
+  { name: 'Arduino IoT', icon: GraduationCap },
 ];
 
 export default function Home() {
@@ -16,9 +48,9 @@ export default function Home() {
       <SiteHeader navItems={navItems} />
 
       <section id="hero" className="container py-32 flex flex-col items-center justify-center text-center">
-        <h1 className="text-5xl font-bold mb-4">MinimalistFolio</h1>
+        <h1 className="text-5xl font-bold mb-4">HanForge</h1>
         <p className="text-lg text-muted-foreground mb-8">
-          A minimalist portfolio website built with Next.js and Shadcn/ui.
+          Ernie Saavedra Jr - Full Stack Web Developer
         </p>
         <Button>Learn More</Button>
       </section>
@@ -30,7 +62,14 @@ export default function Home() {
 
       <section id="skills" className="container py-24 flex flex-col items-center justify-center">
         <h2 className="text-3xl font-bold">Skills</h2>
-        <p className="mt-4">My technical skills and expertise.</p>
+        <div className="mt-8 grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
+          {skills.map((skill) => (
+            <div key={skill.name} className="flex flex-col items-center">
+              <skill.icon className="h-6 w-6 mb-2" />
+              <p className="text-sm">{skill.name}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section id="projects" className="container py-24 flex flex-col items-center justify-center">
