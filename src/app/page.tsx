@@ -59,6 +59,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const observer = useRef<IntersectionObserver | null>(null);
   const [repos, setRepos] = useState([]);
+  const [formStatus, setFormStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({type: null, message: ''});
   const sections = [
     {id: 'about', threshold: 0.5},
     {id: 'skills', threshold: 0.5},
@@ -129,23 +130,36 @@ export default function Home() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
+
     const formData = new FormData(form);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    if (!name || !email || !message) {
+      setFormStatus({type: 'error', message: 'Please fill out all required fields.'});
+      return;
+    }
 
     try {
-      const response = await fetch('/api/sendEmail', {
+      const response = await fetch('https://formspree.io/f/mgvkedrd', {
         method: 'POST',
         body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
-        alert('Email sent successfully!');
+        setFormStatus({type: 'success', message: 'Thank you for your message! We will be in touch soon.'});
         form.reset(); // Clear the form
       } else {
-        alert('Failed to send email.');
+        const errorData = await response.json();
+        setFormStatus({type: 'error', message: `Failed to send message: ${errorData.error || 'An unknown error occurred.'}`});
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending email:', error);
-      alert('An error occurred while sending the email.');
+      setFormStatus({type: 'error', message: 'An error occurred while sending the message.'});
     }
   };
 
@@ -269,16 +283,22 @@ export default function Home() {
               Get in touch with me.
             </p>
           </div>
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8" onSubmit={handleSubmit}>
+          <form className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8" onSubmit={handleSubmit}
+                action="https://formspree.io/f/mgvkedrd" method="POST">
             <div>
-              <Input type="text" name="name" placeholder="Name"
+              <Input type="text" name="name" placeholder="Name" required
                      className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
-              <Input type="email" name="email" placeholder="Email"
+              <Input type="email" name="email" placeholder="Email" required
                      className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
               <Input type="text" name="subject" placeholder="Subject (optional)"
                      className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
-              <Textarea name="message" placeholder="Message" className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
+              <Textarea name="message" placeholder="Message" required className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
               <Button className="bg-[#66FCF1] text-black hover:bg-[#45A29E]" type="submit">Submit</Button>
+               {formStatus.type && (
+                <p className={cn(formStatus.type === 'success' ? 'text-green-500' : 'text-red-500', 'mt-4 text-center')}>
+                  {formStatus.message}
+                </p>
+              )}
             </div>
             <div className="text-white">
               <p>
