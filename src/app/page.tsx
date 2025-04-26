@@ -47,21 +47,21 @@ export default function Home() {
     <>
       <SiteHeader navItems={navItems} />
 
-      <section id="hero" className="container py-32 flex flex-col items-center justify-center text-center">
+      <section id="hero" className="container py-32 flex flex-col items-center justify-center text-center border-b">
         <h1 className="text-5xl font-bold mb-4">HanForge</h1>
         <p className="text-lg text-muted-foreground mb-8">
           Ernie Saavedra Jr - Full Stack Web Developer
         </p>
       </section>
 
-      <section id="about" className="container py-16 flex flex-col items-center justify-center text-center">
+      <section id="about" className="container py-16 flex flex-col items-center justify-center text-center border-b">
         <h2 className="text-3xl font-semibold mb-4">
           About
         </h2>
         Learn more about me.
       </section>
 
-      <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center">
+      <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center border-b">
         <h2 className="text-3xl font-semibold mb-4">
           Skills
         </h2>
@@ -77,21 +77,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="container py-16 flex flex-col items-center justify-center text-center">
+      <section id="projects" className="container py-16 flex flex-col items-center justify-center text-center border-b">
         <h2 className="text-3xl font-semibold mb-4">
           Projects
         </h2>
         Check out my latest projects.
       </section>
 
-      <section id="contact" className="container py-16 flex flex-col items-center justify-center text-center">
+      <section id="contact" className="container py-16 flex flex-col items-center justify-center text-center border-b">
         <h2 className="text-3xl font-semibold mb-4">
           Contact
         </h2>
         Get in touch with me.
       </section>
 
-      <section id="resume" className="container py-16 flex flex-col items-center justify-center text-center">
+      <section id="resume" className="container py-16 flex flex-col items-center justify-center text-center border-b">
         <h2 className="text-3xl font-semibold mb-4">
           Resume
         </h2>
