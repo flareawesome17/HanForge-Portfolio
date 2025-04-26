@@ -7,7 +7,7 @@ import {
   Bot,
   Repeat as ReactIcon,
   FileCode2 as Php,
-  Terminal as Git,
+  Terminal,
   Github,
   Files as Firebase,
   Database as Sql,
@@ -16,11 +16,9 @@ import {
   Code as HtmlIcon,
 } from 'lucide-react';
 
-
 const navItems = [
   { title: 'About', href: '#about' },
   { title: 'Skills', href: '#skills' },
-    { title: 'Blogs', href: '#blogs' },
   { title: 'Projects', href: '#projects' },
   { title: 'Contact', href: '#contact' },
 ];
@@ -31,9 +29,9 @@ const skills = [
   { name: 'JavaScript', icon: Javascript },
   { name: 'Bootstrap', icon: Bot },
   { name: 'React', icon: ReactIcon },
-  { name: 'Node.js', icon: Git },
+  { name: 'Node.js', icon: Terminal },
   { name: 'PHP', icon: Php },
-  { name: 'Git', icon: Git },
+  { name: 'Git', icon: Terminal },
   { name: 'GitHub', icon: Github },
   { name: 'Firebase', icon: Firebase },
   { name: 'SQL', icon: Sql },
@@ -53,14 +51,17 @@ export default function Home() {
             "url('https://res.cloudinary.com/dbpurstxt/image/upload/v1745557727/hanforge/profile_pictures/nwrp20kxuqblwdstnkgm.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          height: "100vh",
+          backgroundRepeat: "no-repeat",
           color: "white",
         }}
       >
-        <h1 className="text-5xl font-bold mb-4">HanForge</h1>
-        <p className="text-lg  mb-8">
+        <h1 className="text-5xl font-bold mb-4 font-dm-serif-text">HanForge</h1>
+        <p className="text-lg  mb-8 font-dm-serif-text">
           Ernie Saavedra Jr - Full Stack Web Developer
         </p>
       </section>
+
       <section
         id="about"
         className="container py-16 flex flex-col items-center justify-center text-center"
@@ -82,13 +83,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
-        <section
-        id="blogs"
-        className="container py-16 flex flex-col items-center justify-center text-center"
-      >
-        <h2 className="text-3xl font-semibold mb-4">Blogs</h2>
-        Check out my latest blog post.
       </section>
 
       <section

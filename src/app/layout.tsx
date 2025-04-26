@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import {Geist, Geist_Mono} from 'next/font/google';
+import {DM_Serif_Text, Geist, Geist_Mono} from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({
@@ -10,6 +10,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+});
+
+const dmSerifText = DM_Serif_Text({
+  variable: '--font-dm-serif-text',
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -24,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${dmSerifText.variable} antialiased`}>
         <div className="flex flex-col min-h-screen">
           <main className="flex-1">{children}</main>
           <footer className="flex justify-center items-center p-4">
@@ -37,4 +44,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
