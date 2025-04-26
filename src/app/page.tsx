@@ -7,7 +7,7 @@ import {
   Bot,
   Repeat as ReactIcon,
   FileCode2 as Php,
-  Terminal,
+  Terminal as Git,
   Github,
   Files as Firebase,
   Database as Sql,
@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { title: 'About', href: '#about' },
@@ -32,9 +33,9 @@ const skills = [
   { name: 'JavaScript', icon: Javascript, category: 'Frontend' },
   { name: 'Bootstrap', icon: Bot, category: 'Frontend' },
   { name: 'React', icon: ReactIcon, category: 'Frontend' },
-  { name: 'Node.js', icon: Terminal, category: 'Backend' },
+  { name: 'Node.js', icon: Git, category: 'Backend' },
   { name: 'PHP', icon: Php, category: 'Backend' },
-  { name: 'Git', icon: Terminal, category: 'Tools' },
+  { name: 'Git', icon: Git, category: 'Tools' },
   { name: 'GitHub', icon: Github, category: 'Tools' },
   { name: 'Firebase', icon: Firebase, category: 'Backend' },
   { name: 'SQL', icon: Sql, category: 'Backend' },
@@ -42,9 +43,16 @@ const skills = [
   { name: 'Arduino IoT', icon: ArduinoIoT, category: 'Other' },
 ];
 
+async function getGithubRepos() {
+  const response = await fetch('https://api.github.com/users/flareawesome17/repos?sort=updated&per_page=10');
+  const repos = await response.json();
+  return repos;
+}
+
 export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const observer = useRef<IntersectionObserver | null>(null);
+  const [repos, setRepos] = useState([]);
   const sections = [
     { id: 'about', threshold: 0.5 },
     { id: 'skills', threshold: 0.5 },
@@ -104,6 +112,14 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    async function fetchData() {
+      const repos = await getGithubRepos();
+      setRepos(repos);
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       <SiteHeader navItems={navItems} activeSection={activeSection} />
@@ -150,7 +166,30 @@ export default function Home() {
 
       <section id="projects" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">Projects</h2>
-        Check out my latest projects.
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          {repos.map((repo) => (
+            <Card key={repo.id} className="hover:scale-105 transition-transform duration-200">
+              <CardContent className="flex flex-col items-start p-6">
+                <CardTitle className="text-lg">{repo.name}</CardTitle>
+                <CardDescription className="text-sm text-muted-foreground mb-4">{repo.description}</CardDescription>
+                <div className="flex gap-2 mt-auto">
+                  <Button asChild variant="outline">
+                    <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                      View Code
+                    </a>
+                  </Button>
+                  {repo.homepage && (
+                    <Button asChild>
+                      <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
 
       <section id="blogs" className="container py-16 flex flex-col items-center justify-center text-center">
