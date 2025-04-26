@@ -6,7 +6,7 @@ import {
   Rss as Css,
   Subscript as Javascript,
   Bot,
-  React as ReactIcon,
+  Repeat as ReactIcon,
   FileCode2 as Php,
   Terminal as Git,
   Github,
