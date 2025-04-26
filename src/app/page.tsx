@@ -10,7 +10,7 @@ import {
   Github,
   Files as Firebase,
   Database as Sql,
-  Phone,
+  Phone as Python,
   GraduationCap as ArduinoIoT,
   Code as HtmlIcon,
   Facebook,
@@ -43,7 +43,7 @@ const skills = [
   {name: 'GitHub', icon: Github, category: 'Tools'},
   {name: 'Firebase', icon: Firebase, category: 'Backend'},
   {name: 'SQL', icon: Sql, category: 'Backend'},
-  {name: 'Python', icon: Phone, category: 'Backend'},
+  {name: 'Python', icon: Python, category: 'Backend'},
   {name: 'Arduino IoT', icon: ArduinoIoT, category: 'Other'},
 ];
 
@@ -275,3 +275,4 @@ export default function Home() {
     </>
   );
 }
+
