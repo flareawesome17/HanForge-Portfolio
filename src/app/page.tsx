@@ -1,7 +1,6 @@
 "use client";
 
 import SiteHeader from '@/components/SiteHeader';
-import { Button } from "@/components/ui/button";
 import {
   Rss as Css,
   Subscript as Javascript,
