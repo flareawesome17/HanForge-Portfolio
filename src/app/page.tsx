@@ -18,6 +18,7 @@ import {
 import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { title: 'About', href: '#about' },
@@ -164,31 +165,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="container py-16 flex flex-col items-center justify-center text-center">
-        <h2 className="text-3xl font-semibold mb-4">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          {repos.map((repo) => (
-            <Card key={repo.id} className="hover:scale-105 transition-transform duration-200">
-              <CardContent className="flex flex-col items-start p-6">
-                <CardTitle className="text-lg">{repo.name}</CardTitle>
-                <CardDescription className="text-sm text-muted-foreground mb-4">{repo.description}</CardDescription>
-                <div className="flex gap-2 mt-auto">
-                  <Button asChild variant="outline">
-                    <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-                      View Code
-                    </a>
-                  </Button>
-                  {repo.homepage && (
-                    <Button asChild>
-                      <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
-                        Live Demo
+      <section id="projects" className="bg-[#1F2833] py-16">
+        <div className="container flex flex-col items-center justify-center text-center">
+          <h2 className="text-3xl font-semibold mb-4 text-white">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {repos.map((repo) => (
+              <Card key={repo.id} className="bg-[#0B0C10] rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform duration-200">
+                <CardContent className="flex flex-col items-start p-0">
+                  <CardTitle className="text-[#66FCF1] text-xl font-semibold">{repo.name}</CardTitle>
+                  <CardDescription className="text-[#C5C6C7] text-sm mb-4">{repo.description}</CardDescription>
+                  <div className="flex gap-2 mt-auto">
+                    <Button asChild variant="outline">
+                      <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2" />
+                        View Code
                       </a>
                     </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    {repo.homepage && (
+                      <Button asChild>
+                        <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
