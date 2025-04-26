@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import MobileNav from "./MobileNav";
 import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 interface SiteHeaderProps {
   navItems: {
@@ -15,9 +16,26 @@ interface SiteHeaderProps {
 
 const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
   const pathname = usePathname();
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY >= 80);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
+    <header
+      className={cn(
+        "sticky top-0 z-40 w-full border-b bg-background transition-all duration-300 ease-in-out",
+        isSticky ? "fixed bg-background/90 backdrop-blur-sm" : "opacity-0 transform translate-y-[-100%]",
+      )}
+    >
       <div className="container flex h-16 items-center justify-between py-4">
         <div className="flex items-center gap-4">
           <MobileNav navItems={navItems} />

@@ -9,13 +9,13 @@ import {
   FileCode2 as Php,
   Terminal,
   Github,
-  Files,
+  Files as Firebase,
   Database as Sql,
   Phone as Python,
   GraduationCap as ArduinoIoT,
   Code as HtmlIcon,
 } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 
 const navItems = [
   { title: 'About', href: '#about' },
@@ -35,7 +35,7 @@ const skills = [
   { name: 'PHP', icon: Php },
   { name: 'Git', icon: Terminal },
   { name: 'GitHub', icon: Github },
-  { name: 'Firebase', icon: Files },
+  { name: 'Firebase', icon: Firebase },
   { name: 'SQL', icon: Sql },
   { name: 'Python', icon: Python },
   { name: 'Arduino IoT', icon: ArduinoIoT },
