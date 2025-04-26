@@ -31,7 +31,7 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
               key={item.href}
               href={item.href}
               className={cn(
-                pathname === item.href ? "text-secondary-accent" : "text-foreground hover:text-secondary-accent",
+                pathname === item.href ? "text-accent" : "text-foreground hover:text-accent",
                 "transition-colors duration-200"
               )}
             >
