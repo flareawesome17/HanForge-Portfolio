@@ -45,51 +45,54 @@ export default function Home() {
   return (
     <>
       <SiteHeader navItems={navItems} />
-
-      <section id="hero" className="container py-32 flex flex-col items-center justify-center text-center border-b">
+      <section
+        id="hero"
+        className="container py-32 flex flex-col items-center justify-center text-center"
+      >
         <h1 className="text-5xl font-bold mb-4">HanForge</h1>
         <p className="text-lg text-muted-foreground mb-8">
           Ernie Saavedra Jr - Full Stack Web Developer
         </p>
       </section>
-
-      <section id="about" className="container py-16 flex flex-col items-center justify-center text-center border-b">
-        <h2 className="text-3xl font-semibold mb-4">
-          About
-        </h2>
+      <section
+        id="about"
+        className="container py-16 flex flex-col items-center justify-center text-center"
+      >
+        <h2 className="text-3xl font-semibold mb-4">About</h2>
         Learn more about me.
       </section>
 
-      <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center border-b">
-        <h2 className="text-3xl font-semibold mb-4">
-          Skills
-        </h2>
+      <section
+        id="skills"
+        className="container py-16 flex flex-col items-center justify-center text-center"
+      >
+        <h2 className="text-3xl font-semibold mb-4">Skills</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {skills.map((skill) => (
             <div key={skill.name} className="flex flex-col items-center">
               <skill.icon className="h-6 w-6 mb-2" />
-              <div>
-                {skill.name}
-              </div>
+              <div>{skill.name}</div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="projects" className="container py-16 flex flex-col items-center justify-center text-center border-b">
-        <h2 className="text-3xl font-semibold mb-4">
-          Projects
-        </h2>
+      <section
+        id="projects"
+        className="container py-16 flex flex-col items-center justify-center text-center"
+      >
+        <h2 className="text-3xl font-semibold mb-4">Projects</h2>
         Check out my latest projects.
       </section>
 
-      <section id="contact" className="container py-16 flex flex-col items-center justify-center text-center border-b">
-        <h2 className="text-3xl font-semibold mb-4">
-          Contact
-        </h2>
+      <section
+        id="contact"
+        className="container py-16 flex flex-col items-center justify-center text-center"
+      >
+        <h2 className="text-3xl font-semibold mb-4">Contact</h2>
         Get in touch with me.
       </section>
-
     </>
   );
 }
+
