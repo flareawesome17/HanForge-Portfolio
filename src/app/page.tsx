@@ -78,8 +78,16 @@ export default function Home() {
       </section>
 
       <section id="about" className="container py-16 flex flex-col items-center justify-center text-center">
-        <h2 className="text-3xl font-semibold mb-4">About</h2>
-        Learn more about me.
+        <h2 className="text-3xl font-semibold mb-4">About Me</h2>
+        <p className="text-lg text-muted-foreground">
+          I’m Ernie Saavedra Jr., a passionate Full Stack Web Developer and IoT innovator dedicated to building impactful, future-proof technology. My expertise lies in crafting seamless user experiences, blending UI/UX design thinking with robust full-stack development.
+        </p>
+        <p className="text-lg text-muted-foreground">
+          With a strong foundation in web technologies and a keen interest in the Internet of Things, I thrive on creating innovative solutions that bridge the digital and physical worlds. I am experienced in leadership and resilience, driving projects from concept to deployment, always with a focus on continuous learning and improvement.
+        </p>
+        <p className="text-lg text-muted-foreground">
+          My mission is to create elegant, efficient, and scalable solutions that solve real-world problems. Let’s build a smarter, better-connected world — one line of code at a time.
+        </p>
       </section>
 
       <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center">
