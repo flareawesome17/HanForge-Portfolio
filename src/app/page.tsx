@@ -9,7 +9,7 @@ import {
   FileCode2 as Php,
   Terminal,
   Github,
-  Files as Firebase,
+  Files,
   Database as Sql,
   Phone as Python,
   GraduationCap as ArduinoIoT,
@@ -35,29 +35,30 @@ const skills = [
   { name: 'PHP', icon: Php },
   { name: 'Git', icon: Terminal },
   { name: 'GitHub', icon: Github },
-  { name: 'Firebase', icon: Firebase },
+  { name: 'Firebase', icon: Files },
   { name: 'SQL', icon: Sql },
   { name: 'Python', icon: Python },
   { name: 'Arduino IoT', icon: ArduinoIoT },
 ];
 
 export default function Home() {
-  const [typedText, setTypedText] = useState('');
-  const textToType = "Hi! I'm Ernie Saavedra Jr";
-  const typingSpeed = 50; // milliseconds per character
-
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-    let charIndex = 0;
-
-    if (charIndex < textToType.length) {
-      timer = setTimeout(() => {
-        setTypedText(textToType.substring(0, charIndex + 1));
-        charIndex++;
-      }, typingSpeed);
+    const typedTextElement = document.getElementById('typed-text');
+    if (typedTextElement) {
+      const typed = new Typed('#typed-text', {
+        strings: ["Hi! I'm Ernie Saavedra Jr"],
+        typeSpeed: 50,
+        showCursor: true,
+        cursorChar: "|",
+        loop: false,
+      });
     }
 
-    return () => clearTimeout(timer);
+    return () => {
+      if (typedTextElement && (typed as any).destroy) {
+        (typed as any).destroy();
+      }
+    };
   }, []);
 
   return (
@@ -68,14 +69,12 @@ export default function Home() {
         style={{ backgroundImage: `url("https://res.cloudinary.com/dbpurstxt/image/upload/v1745557727/hanforge/profile_pictures/nwrp20kxuqblwdstnkgm.jpg")` }}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 px-4">
-          <h1 className="text-5xl font-bold mb-4 font-dm-serif-text">
-            {typedText}
-            <span className="blinking-cursor"></span>
-          </h1>
+          <h1 id="typed-text" className="text-5xl font-bold mb-4 font-dm-serif-text"></h1>
           <p className="text-lg text-muted-foreground mb-8 font-dm-serif-text">
             Full Stack Web Developer
           </p>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
       </section>
 
       <section id="about" className="container py-16 flex flex-col items-center justify-center text-center">
