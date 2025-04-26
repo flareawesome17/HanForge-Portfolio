@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import {DM_Serif_Text, Geist, Geist_Mono} from 'next/font/google';
 import './globals.css';
+import Footer from '@/components/Footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,11 +35,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${dmSerifText.variable} antialiased`}>
         <div className="flex flex-col min-h-screen">
           <main className="flex-1">{children}</main>
-          <footer className="flex justify-center items-center p-4">
-            <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} HanForge. All rights reserved.
-            </p>
-          </footer>
+          <Footer />
         </div>
       </body>
     </html>
