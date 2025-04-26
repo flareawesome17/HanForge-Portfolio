@@ -4,19 +4,19 @@ import SiteHeader from '@/components/SiteHeader';
 import { Button } from "@/components/ui/button";
 import {
   Html,
-  Css3,
+  Rss as Css,
   Javascript,
   Bot,
-  ReactIcon,
-  Nodejs,
-  Php,
-  Git,
+  React as ReactIcon,
+  FileCode2 as Php,
+  Terminal as Git,
   Github,
-  Firebase,
-  Sql,
+  Files as Firebase,
+  Database as Sql,
   Python,
+  GraduationCap,
+  Terminal as Nodejs,
 } from 'lucide-react';
-import { GraduationCap } from 'lucide-react';
 
 const navItems = [
   { title: 'About', href: '#about' },
@@ -28,7 +28,7 @@ const navItems = [
 
 const skills = [
   { name: 'HTML', icon: Html },
-  { name: 'CSS', icon: Css3 },
+  { name: 'CSS', icon: Css },
   { name: 'JavaScript', icon: Javascript },
   { name: 'Bootstrap', icon: Bot },
   { name: 'React', icon: ReactIcon },
