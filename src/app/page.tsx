@@ -6,7 +6,7 @@ import {
   Subscript as Javascript,
   Bot,
   Repeat as ReactIcon,
-  Terminal,
+  Terminal as Git,
   Github,
   Files as Firebase,
   Database as Sql,
@@ -15,6 +15,8 @@ import {
   Code as HtmlIcon,
   Facebook,
   Linkedin,
+  Terminal as Nodejs,
+  Code,
 } from 'lucide-react';
 import {useEffect, useRef, useState} from 'react';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
@@ -37,9 +39,9 @@ const skills = [
   {name: 'JavaScript', icon: Javascript, category: 'Frontend'},
   {name: 'Bootstrap', icon: Bot, category: 'Frontend'},
   {name: 'React', icon: ReactIcon, category: 'Frontend'},
-  {name: 'Node.js', icon: Terminal, category: 'Backend'},
-  {name: 'PHP', icon: Terminal, category: 'Backend'},
-  {name: 'Git', icon: Terminal, category: 'Tools'},
+  {name: 'Node.js', icon: Nodejs, category: 'Backend'},
+  {name: 'PHP', icon: Code, category: 'Backend'},
+  {name: 'Git', icon: Git, category: 'Tools'},
   {name: 'GitHub', icon: Github, category: 'Tools'},
   {name: 'Firebase', icon: Firebase, category: 'Backend'},
   {name: 'SQL', icon: Sql, category: 'Backend'},
@@ -275,5 +277,3 @@ export default function Home() {
     </>
   );
 }
-
-
