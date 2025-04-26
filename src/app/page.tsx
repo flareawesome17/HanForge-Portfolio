@@ -143,17 +143,17 @@ export default function Home() {
 
       <section id="about" className="container py-16">
         <h2 className="text-3xl font-semibold mb-4 text-center">About Me</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="flex justify-center">
+        <div className="md:flex items-center">
+          <div className="md:w-2/5 flex justify-center">
             <Image
               src="https://res.cloudinary.com/dbpurstxt/image/upload/v1745656743/hanforge/wpufezbvbwpptrn0w1yq.jpg"
               alt="Ernie Saavedra Jr Profile"
               width={250}
               height={250}
-              className="rounded-full"
+              className="rounded-full mb-4 md:mb-0"
             />
           </div>
-          <div>
+          <div className="md:w-3/5">
             <p className="text-lg text-muted-foreground">
               I’m Ernie Saavedra Jr., a passionate Full Stack Web Developer and IoT innovator dedicated to building
               impactful,
@@ -275,4 +275,5 @@ export default function Home() {
     </>
   );
 }
+
 
