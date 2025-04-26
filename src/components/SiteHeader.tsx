@@ -43,7 +43,7 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems, activeSection }) => {
           <MobileNav navItems={navItems} />
           <a className="flex items-center space-x-2 hover:scale-105 transition-transform duration-300" href="/">
             <Image
-              src="/favicon.png"
+              src="https://res.cloudinary.com/dbpurstxt/image/upload/v1745655303/hanforge/qchwabiowygga6ktxysq.png"
               alt="HanForge Logo"
               width={40}
               height={40}
@@ -72,3 +72,4 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems, activeSection }) => {
 };
 
 export default SiteHeader;
+
