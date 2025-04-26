@@ -20,6 +20,7 @@ const navItems = [
   { title: 'About', href: '#about' },
   { title: 'Skills', href: '#skills' },
   { title: 'Projects', href: '#projects' },
+  { title: 'Blogs', href: '#blogs' },
   { title: 'Contact', href: '#contact' },
 ];
 
@@ -43,21 +44,22 @@ export default function Home() {
   return (
     <>
       <SiteHeader navItems={navItems} />
-      <section
-        id="hero"
-        className="container py-32 flex flex-col items-center justify-center text-center"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dbpurstxt/image/upload/v1745557727/hanforge/profile_pictures/nwrp20kxuqblwdstnkgm.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "100vh",
-          backgroundRepeat: "no-repeat",
-          color: "white",
-        }}
-      >
+
+      <section id="hero" className="container py-32 flex flex-col items-center justify-center text-center">
+        <div
+          className="hero-image"
+          style={{
+            backgroundImage: "url('https://res.cloudinary.com/dbpurstxt/image/upload/v1745557727/hanforge/profile_pictures/nwrp20kxuqblwdstnkgm.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100%",
+            height: "50vh",
+            backgroundRepeat: "no-repeat",
+            marginBottom: "20px",
+          }}
+        ></div>
         <h1 className="text-5xl font-bold mb-4 font-dm-serif-text">HanForge</h1>
-        <p className="text-lg  mb-8 font-dm-serif-text">
+        <p className="text-lg text-muted-foreground mb-8 font-dm-serif-text">
           Ernie Saavedra Jr - Full Stack Web Developer
         </p>
       </section>
@@ -94,6 +96,14 @@ export default function Home() {
       </section>
 
       <section
+        id="blogs"
+        className="container py-16 flex flex-col items-center justify-center text-center"
+      >
+        <h2 className="text-3xl font-semibold mb-4">Blogs</h2>
+        Read my thoughts and insights.
+      </section>
+
+      <section
         id="contact"
         className="container py-16 flex flex-col items-center justify-center text-center"
       >
@@ -103,3 +113,4 @@ export default function Home() {
     </>
   );
 }
+

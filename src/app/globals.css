@@ -1,9 +1,19 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Container Styles */
+.container {
+  max-width: 1200px; /* Equivalent to Tailwind's 7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 @layer base {
@@ -95,4 +105,9 @@ section:nth-child(odd) {
 
 section:last-child {
   border-bottom: none;
+}
+/* Hero Image */
+.hero-image {
+  border-radius: 10px; /* Optional: for rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for a subtle shadow */
 }

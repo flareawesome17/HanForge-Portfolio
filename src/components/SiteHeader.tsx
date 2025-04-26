@@ -45,4 +45,3 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
 };
 
 export default SiteHeader;
-
