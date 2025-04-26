@@ -1,10 +1,11 @@
 "use client";
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
+import { DialogTitle } from '@radix-ui/react-dialog';
 
 interface MobileNavProps {
   navItems: {
@@ -28,7 +29,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems }) => {
       </SheetTrigger>
       <SheetContent side="left" className="sm:w-2/3 lg:w-1/2">
         <div className="grid gap-4 py-4">
-          <h2 className="font-semibold text-lg">{siteConfig.name}</h2>
+          <DialogTitle className="font-semibold text-lg">{siteConfig.name}</DialogTitle>
           <div className="grid gap-2">
             {navItems.map((item) => (
               <Button key={item.href} variant="ghost" className="justify-start">
@@ -45,4 +46,3 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems }) => {
 };
 
 export default MobileNav;
-
