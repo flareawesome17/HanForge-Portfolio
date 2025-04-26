@@ -193,7 +193,7 @@ export default function Home() {
 
       <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-6 w-full">
           {skills.map((skill) => (
             <Card key={skill.name} className="hover:scale-105 transition-transform duration-200">
               <CardContent className="flex flex-col items-center p-6">
