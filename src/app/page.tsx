@@ -55,14 +55,14 @@ export default function Home() {
         <Button>Learn More</Button>
       </section>
 
-      <section id="about" className="container py-16">
+      <section id="about" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">
           About
         </h2>
         Learn more about me.
       </section>
 
-      <section id="skills" className="container py-16">
+      <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">
           Skills
         </h2>
@@ -78,21 +78,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="container py-16">
+      <section id="projects" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">
           Projects
         </h2>
         Check out my latest projects.
       </section>
 
-      <section id="contact" className="container py-16">
+      <section id="contact" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">
           Contact
         </h2>
         Get in touch with me.
       </section>
 
-      <section id="resume" className="container py-16">
+      <section id="resume" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">
           Resume
         </h2>
