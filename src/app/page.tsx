@@ -20,6 +20,7 @@ import {
 const navItems = [
   { title: 'About', href: '#about' },
   { title: 'Skills', href: '#skills' },
+    { title: 'Blogs', href: '#blogs' },
   { title: 'Projects', href: '#projects' },
   { title: 'Contact', href: '#contact' },
 ];
@@ -72,6 +73,13 @@ export default function Home() {
           ))}
         </div>
       </section>
+        <section
+        id="blogs"
+        className="container py-16 flex flex-col items-center justify-center text-center"
+      >
+        <h2 className="text-3xl font-semibold mb-4">Blogs</h2>
+        Check out my latest blog post.
+      </section>
 
       <section
         id="projects"
@@ -91,5 +99,4 @@ export default function Home() {
     </>
   );
 }
-
 
