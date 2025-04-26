@@ -141,34 +141,53 @@ export default function Home() {
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
       </section>
 
-      <section id="about" className="container py-16 flex flex-col items-center justify-center text-center">
-        <h2 className="text-3xl font-semibold mb-4">About Me</h2>
-        <p className="text-lg text-muted-foreground">
-          I’m Ernie Saavedra Jr., a passionate Full Stack Web Developer and IoT innovator dedicated to building impactful,
-          future-proof technology. My expertise lies in crafting seamless user experiences, blending UI/UX design
-          thinking with robust full-stack development.
-        </p>
-        <p className="text-lg text-muted-foreground">
-          With a strong foundation in web technologies and a keen interest in the Internet of Things, I thrive on
-          creating innovative solutions that bridge the digital and physical worlds. I am experienced in leadership
-          and resilience, driving projects from concept to deployment, always with a focus on continuous learning and
-          improvement.
-        </p>
-         <div className="flex items-center justify-center mt-4 space-x-4">
-            <a href="https://github.com/flareawesome17" target="_blank" rel="noopener noreferrer" className="hover:text-[#66FCF1]">
-              <Github className="h-6 w-6"/>
-            </a>
-            <a href="https://www.facebook.com/erniesaavedra.villaroya" target="_blank" rel="noopener noreferrer" className="hover:text-[#66FCF1]">
-              <Facebook className="h-6 w-6"/>
-            </a>
-            <a href="https://www.linkedin.com/in/ernie-saavedra-jr-55a758284/" target="_blank" rel="noopener noreferrer" className="hover:text-[#66FCF1]">
-              <Linkedin className="h-6 w-6"/>
-            </a>
+      <section id="about" className="container py-16">
+        <h2 className="text-3xl font-semibold mb-4 text-center">About Me</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="flex justify-center">
+            <Image
+              src="https://res.cloudinary.com/dbpurstxt/image/upload/v1745656743/hanforge/wpufezbvbwpptrn0w1yq.jpg"
+              alt="Ernie Saavedra Jr Profile"
+              width={250}
+              height={250}
+              className="rounded-full"
+            />
           </div>
-        <p className="text-lg text-muted-foreground">
-          My mission is to create elegant, efficient, and scalable solutions that solve real-world problems. Let’s
-          build a smarter, better-connected world — one line of code at a time.
-        </p>
+          <div>
+            <p className="text-lg text-muted-foreground">
+              I’m Ernie Saavedra Jr., a passionate Full Stack Web Developer and IoT innovator dedicated to building
+              impactful,
+              future-proof technology. My expertise lies in crafting seamless user experiences, blending UI/UX design
+              thinking with robust full-stack development.
+            </p>
+            <p className="text-lg text-muted-foreground">
+              With a strong foundation in web technologies and a keen interest in the Internet of Things, I thrive on
+              creating innovative solutions that bridge the digital and physical worlds. I am experienced in leadership
+              and resilience, driving projects from concept to deployment, always with a focus on continuous learning
+              and
+              improvement.
+            </p>
+
+            <p className="text-lg text-muted-foreground">
+              My mission is to create elegant, efficient, and scalable solutions that solve real-world problems. Let’s
+              build a smarter, better-connected world — one line of code at a time.
+            </p>
+            <div className="flex items-center justify-start mt-4 space-x-4">
+              <a href="https://github.com/flareawesome17" target="_blank" rel="noopener noreferrer"
+                 className="hover:text-[#66FCF1]">
+                <Github className="h-6 w-6"/>
+              </a>
+              <a href="https://www.facebook.com/erniesaavedra.villaroya" target="_blank" rel="noopener noreferrer"
+                 className="hover:text-[#66FCF1]">
+                <Facebook className="h-6 w-6"/>
+              </a>
+              <a href="https://www.linkedin.com/in/ernie-saavedra-jr-55a758284/" target="_blank"
+                 rel="noopener noreferrer" className="hover:text-[#66FCF1]">
+                <Linkedin className="h-6 w-6"/>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center">
