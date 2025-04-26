@@ -15,7 +15,7 @@ import {
   GraduationCap as ArduinoIoT,
   Code as HtmlIcon,
 } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const navItems = [
   { title: 'About', href: '#about' },
@@ -42,6 +42,16 @@ const skills = [
 ];
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('');
+  const observer = useRef<IntersectionObserver | null>(null);
+  const sections = [
+    { id: 'about', threshold: 0.5 },
+    { id: 'skills', threshold: 0.5 },
+    { id: 'projects', threshold: 0.5 },
+    { id: 'blogs', threshold: 0.5 },
+    { id: 'contact', threshold: 0.5 },
+  ];
+
   useEffect(() => {
     const typedTextElement = document.getElementById('typed-text');
     if (typedTextElement) {
@@ -61,9 +71,41 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-10% 0px -80% 0px',
+        threshold: sections.map(section => section.threshold),
+      }
+    );
+
+    sections.forEach(section => {
+      const element = document.getElementById(section.id);
+      if (element) {
+        observer.current?.observe(element);
+      }
+    });
+
+    return () => {
+      sections.forEach(section => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          observer.current?.unobserve(element);
+        }
+      });
+    };
+  }, []);
+
   return (
     <>
-      <SiteHeader navItems={navItems} />
+      <SiteHeader navItems={navItems} activeSection={activeSection} />
 
       <section id="hero" className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-center"
         style={{ backgroundImage: `url("https://res.cloudinary.com/dbpurstxt/image/upload/v1745557727/hanforge/profile_pictures/nwrp20kxuqblwdstnkgm.jpg")` }}>
@@ -119,4 +161,3 @@ export default function Home() {
     </>
   );
 }
-

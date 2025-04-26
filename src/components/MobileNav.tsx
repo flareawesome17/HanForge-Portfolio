@@ -29,7 +29,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems }) => {
       </SheetTrigger>
       <SheetContent side="left" className="sm:w-2/3 lg:w-1/2">
         <div className="grid gap-4 py-4">
-          <DialogTitle className="font-semibold text-lg">{siteConfig.name}</DialogTitle>
+        <DialogTitle className="font-semibold text-lg">{siteConfig.name}</DialogTitle>
           <div className="grid gap-2">
             {navItems.map((item) => (
               <Button key={item.href} variant="ghost" className="justify-start">

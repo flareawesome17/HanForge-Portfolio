@@ -12,9 +12,10 @@ interface SiteHeaderProps {
     title: string;
     href: string;
   }[];
+  activeSection: string;
 }
 
-const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
+const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems, activeSection }) => {
   const pathname = usePathname();
   const [isSticky, setIsSticky] = useState(false);
 
@@ -49,7 +50,7 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
               key={item.href}
               href={item.href}
               className={cn(
-                pathname === item.href ? "text-accent" : "text-foreground hover:text-accent",
+                activeSection === item.href.substring(1) ? "text-accent" : "text-foreground hover:text-accent",
                 "transition-colors duration-200"
               )}
             >
@@ -63,4 +64,3 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
 };
 
 export default SiteHeader;
-
