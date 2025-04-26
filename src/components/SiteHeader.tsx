@@ -32,8 +32,8 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full border-b bg-background transition-all duration-300 ease-in-out",
-        isSticky ? "fixed bg-background/90 backdrop-blur-sm" : "opacity-0 transform translate-y-[-100%]",
+        "fixed top-0 z-40 w-full border-b bg-background transition-all duration-300 ease-in-out",
+        isSticky ? "bg-background/90 backdrop-blur-sm" : "opacity-0 transform translate-y-[-100%]",
       )}
     >
       <div className="container flex h-16 items-center justify-between py-4">
@@ -63,3 +63,4 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
 };
 
 export default SiteHeader;
+
