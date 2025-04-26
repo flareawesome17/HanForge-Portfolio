@@ -18,7 +18,7 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container flex h-16 items-center justify-center py-4">
+      <div className="container flex h-16 items-center justify-between py-4">
         <div className="flex items-center gap-4">
           <MobileNav navItems={navItems} />
           <a className="lg:flex items-center font-semibold" href="/">
@@ -45,3 +45,4 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({ navItems }) => {
 };
 
 export default SiteHeader;
+

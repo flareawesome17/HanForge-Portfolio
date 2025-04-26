@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,7 +20,7 @@ body {
     --secondary-foreground: 20 14% 12%;
     --muted: 20 14% 12%;
     --muted-foreground: 30 7% 72%;
-    --accent: 20 14% 12%;
+    --accent: 100 96% 67%;
     --accent-foreground: 30 7% 72%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -45,8 +44,8 @@ body {
     --secondary-accent: 168 37% 44%;
   }
   .dark {
-    --background: 20 14% 12%;
-    --foreground: 30 7% 72%;
+    --background: 133 16% 6%;
+    --foreground: 200 13% 86%;
     --card: 20 14% 12%;
     --card-foreground: 30 7% 72%;
     --popover: 20 14% 12%;
@@ -57,7 +56,7 @@ body {
     --secondary-foreground: 20 14% 12%;
     --muted: 20 14% 12%;
     --muted-foreground: 30 7% 72%;
-    --accent: 20 14% 12%;
+    --accent: 100 96% 67%;
     --accent-foreground: 30 7% 72%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -90,3 +89,10 @@ body {
   }
 }
 
+section:nth-child(odd) {
+  border-bottom: 1px solid hsl(var(--secondary-accent));
+}
+
+section:last-child {
+  border-bottom: none;
+}

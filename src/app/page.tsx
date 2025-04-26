@@ -91,13 +91,6 @@ export default function Home() {
         Get in touch with me.
       </section>
 
-      <section id="resume" className="container py-16 flex flex-col items-center justify-center text-center border-b">
-        <h2 className="text-3xl font-semibold mb-4">
-          Resume
-        </h2>
-        View my resume.
-      </section>
-
     </>
   );
 }

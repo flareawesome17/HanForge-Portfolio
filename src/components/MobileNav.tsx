@@ -45,3 +45,4 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems }) => {
 };
 
 export default MobileNav;
+
