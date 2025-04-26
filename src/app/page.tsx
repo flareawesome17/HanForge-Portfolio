@@ -13,6 +13,8 @@ import {
   Phone,
   GraduationCap as ArduinoIoT,
   Code as HtmlIcon,
+  Facebook,
+  Linkedin,
 } from 'lucide-react';
 import {useEffect, useRef, useState} from 'react';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
@@ -151,6 +153,17 @@ export default function Home() {
           and resilience, driving projects from concept to deployment, always with a focus on continuous learning and
           improvement.
         </p>
+         <div className="flex items-center justify-center mt-4 space-x-4">
+            <a href="https://github.com/flareawesome17" target="_blank" rel="noopener noreferrer" className="hover:text-[#66FCF1]">
+              <Github className="h-6 w-6"/>
+            </a>
+            <a href="https://www.facebook.com/erniesaavedra.villaroya" target="_blank" rel="noopener noreferrer" className="hover:text-[#66FCF1]">
+              <Facebook className="h-6 w-6"/>
+            </a>
+            <a href="https://www.linkedin.com/in/ernie-saavedra-jr-55a758284/" target="_blank" rel="noopener noreferrer" className="hover:text-[#66FCF1]">
+              <Linkedin className="h-6 w-6"/>
+            </a>
+          </div>
         <p className="text-lg text-muted-foreground">
           My mission is to create elegant, efficient, and scalable solutions that solve real-world problems. Let’s
           build a smarter, better-connected world — one line of code at a time.
