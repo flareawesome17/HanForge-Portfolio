@@ -24,7 +24,6 @@ const navItems = [
   { title: 'About', href: '#about' },
   { title: 'Skills', href: '#skills' },
   { title: 'Projects', href: '#projects' },
-  { title: 'Blogs', href: '#blogs' },
   { title: 'Contact', href: '#contact' },
 ];
 
@@ -58,7 +57,6 @@ export default function Home() {
     { id: 'about', threshold: 0.5 },
     { id: 'skills', threshold: 0.5 },
     { id: 'projects', threshold: 0.5 },
-    { id: 'blogs', threshold: 0.5 },
     { id: 'contact', threshold: 0.5 },
   ];
 
@@ -196,11 +194,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="blogs" className="container py-16 flex flex-col items-center justify-center text-center">
-        <h2 className="text-3xl font-semibold mb-4">Blogs</h2>
-        Read my thoughts and insights.
-      </section>
-
       <section id="contact" className="container py-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-semibold mb-4">Contact</h2>
         Get in touch with me.
@@ -208,3 +201,4 @@ export default function Home() {
     </>
   );
 }
+
