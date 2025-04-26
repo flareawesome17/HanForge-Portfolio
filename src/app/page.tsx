@@ -32,7 +32,7 @@ const skills = [
   { name: 'JavaScript', icon: Javascript },
   { name: 'Bootstrap', icon: Bot },
   { name: 'React', icon: ReactIcon },
-  { name: 'Node.js', icon: Git },
+  { name: 'Node.js', icon: Terminal },
   { name: 'PHP', icon: Php },
   { name: 'Git', icon: Git },
   { name: 'GitHub', icon: Github },
@@ -52,7 +52,6 @@ export default function Home() {
         <p className="text-lg text-muted-foreground mb-8">
           Ernie Saavedra Jr - Full Stack Web Developer
         </p>
-        <Button>Learn More</Button>
       </section>
 
       <section id="about" className="container py-16 flex flex-col items-center justify-center text-center">
