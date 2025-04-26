@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import SiteHeader from '@/components/SiteHeader';
 import {
@@ -16,15 +16,15 @@ import {
   Facebook,
   Linkedin,
   Terminal as Nodejs,
-  Code,
+  FileCode2 as Php,
 } from 'lucide-react';
 import {useEffect, useRef, useState} from 'react';
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
-import {Button} from "@/components/ui/button";
-import {cn} from "@/lib/utils";
-import {Input} from "@/components/ui/input"
-import {Textarea} from "@/components/ui/textarea"
-import Image from "next/image";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {cn} from '@/lib/utils';
+import {Input} from '@/components/ui/input';
+import {Textarea} from '@/components/ui/textarea';
+import Image from 'next/image';
 
 const navItems = [
   {title: 'About', href: '#about'},
@@ -40,7 +40,7 @@ const skills = [
   {name: 'Bootstrap', icon: Bot, category: 'Frontend'},
   {name: 'React', icon: ReactIcon, category: 'Frontend'},
   {name: 'Node.js', icon: Nodejs, category: 'Backend'},
-  {name: 'PHP', icon: Code, category: 'Backend'},
+  {name: 'PHP', icon: Php, category: 'Backend'},
   {name: 'Git', icon: Git, category: 'Tools'},
   {name: 'GitHub', icon: Github, category: 'Tools'},
   {name: 'Firebase', icon: Firebase, category: 'Backend'},
@@ -73,7 +73,7 @@ export default function Home() {
         strings: ["Hi! I'm Ernie Saavedra Jr"],
         typeSpeed: 50,
         showCursor: true,
-        cursorChar: "|",
+        cursorChar: '|',
         loop: false,
       });
     }
@@ -96,11 +96,11 @@ export default function Home() {
       },
       {
         rootMargin: '-10% 0px -80% 0px',
-        threshold: sections.map(section => section.threshold),
+        threshold: sections.map((section) => section.threshold),
       }
     );
 
-    sections.forEach(section => {
+    sections.forEach((section) => {
       const element = document.getElementById(section.id);
       if (element) {
         observer.current?.observe(element);
@@ -108,7 +108,7 @@ export default function Home() {
     });
 
     return () => {
-      sections.forEach(section => {
+      sections.forEach((section) => {
         const element = document.getElementById(section.id);
         if (element) {
           observer.current?.unobserve(element);
@@ -125,6 +125,29 @@ export default function Home() {
 
     fetchData();
   }, []);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/api/sendEmail', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        alert('Email sent successfully!');
+        form.reset(); // Clear the form
+      } else {
+        alert('Failed to send email.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('An error occurred while sending the email.');
+    }
+  };
 
   return (
     <>
@@ -238,7 +261,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="bg-[#1F2833] py-16">
+      <section id="contact" className="py-16" style={{backgroundColor: '#2E2B2B'}}>
         <div className="container">
           <div className="flex flex-col items-center justify-center text-center">
             <h2 className="text-3xl font-semibold mb-4 text-[#66FCF1]">Let's Connect</h2>
@@ -246,15 +269,16 @@ export default function Home() {
               Get in touch with me.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+          <form className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8" onSubmit={handleSubmit}>
             <div>
-              <Input type="text" placeholder="Name" className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
-              <Input type="email" placeholder="Email"
+              <Input type="text" name="name" placeholder="Name"
                      className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
-              <Input type="text" placeholder="Subject (optional)"
+              <Input type="email" name="email" placeholder="Email"
                      className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
-              <Textarea placeholder="Message" className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
-              <Button className="bg-[#66FCF1] text-black hover:bg-[#45A29E]">Submit</Button>
+              <Input type="text" name="subject" placeholder="Subject (optional)"
+                     className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
+              <Textarea name="message" placeholder="Message" className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
+              <Button className="bg-[#66FCF1] text-black hover:bg-[#45A29E]" type="submit">Submit</Button>
             </div>
             <div className="text-white">
               <p>
@@ -270,7 +294,7 @@ export default function Home() {
                              rel="noopener noreferrer" className="hover:text-[#66FCF1]">Ernie Saavedra Jr</a>
               </p>
             </div>
-          </div>
+          </form>
         </div>
       </section>
     </>
