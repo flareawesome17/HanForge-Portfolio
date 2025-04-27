@@ -32,6 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="https://res.cloudinary.com/dbpurstxt/image/upload/v1745656743/hanforge/wpufezbvbwpptrn0w1yq.jpg" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${dmSerifText.variable} antialiased`}>
         <div className="flex flex-col min-h-screen">
           <main className="flex-1">{children}</main>
