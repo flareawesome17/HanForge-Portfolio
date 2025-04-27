@@ -1,3 +1,5 @@
+'use client';
+
 import SiteHeader from '@/components/SiteHeader';
 import {
   Rss as Css,
@@ -87,8 +89,9 @@ async function getGithubRepos() {
 export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const observer = useRef<IntersectionObserver | null>(null);
-  const [repos, setRepos] = useState([]);
-  const [formStatus, setFormStatus<{ type: 'success' | 'error' | null; message: string }>({type: null, message: ''});
+  const [repos, setRepos] = useState<any[]>([]);
+  const [formStatus, setFormStatus: useState<{ type: 'success' | 'error' | null; message: string }>
+] = useState({type: null, message: ''});
   const sections = [
     {id: 'about', threshold: 0.5},
     {id: 'skills', threshold: 0.5},
