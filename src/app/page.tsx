@@ -16,6 +16,7 @@ import {
   Facebook,
   Linkedin,
   Terminal as Nodejs,
+  FileCode2 as Php,
 } from 'lucide-react';
 import {useEffect, useRef, useState} from 'react';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
@@ -90,8 +91,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const observer = useRef<IntersectionObserver | null>(null);
   const [repos, setRepos] = useState<any[]>([]);
-  const [formStatus, setFormStatus: useState<{ type: 'success' | 'error' | null; message: string }>
-] = useState({type: null, message: ''});
+  const [formStatus, setFormStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({type: null, message: ''});
   const sections = [
     {id: 'about', threshold: 0.5},
     {id: 'skills', threshold: 0.5},
@@ -292,7 +292,7 @@ export default function Home() {
                   <div className="flex gap-2 mt-auto">
                     <Button asChild variant="outline">
                       <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2"/>
+                        <Git className="w-4 h-4 mr-2"/>
                         View Code
                       </a>
                     </Button>
