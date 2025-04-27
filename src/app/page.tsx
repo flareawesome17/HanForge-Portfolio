@@ -92,6 +92,7 @@ export default function Home() {
   const observer = useRef<IntersectionObserver | null>(null);
   const [repos, setRepos] = useState<any[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({type: null, message: ''});
   const {toast} = useToast();
   const sections = [
     {id: 'about', threshold: 0.5},
@@ -164,9 +165,12 @@ export default function Home() {
     fetchData();
   }, []);
 
+  const [activeSection, setActiveSection] = useState('hero');
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
+    setFormStatus({ type: null, message: '' }); // Clear previous status
 
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
@@ -181,26 +185,18 @@ export default function Home() {
       });
 
       if (response.ok) {
-        toast({
-          title: 'Success',
-          description: 'Thank you for your message! We will be in touch soon.',
-        });
+        setFormStatus({ type: 'success', message: 'Thank you for your message! We will be in touch soon. ✅' });
         form.reset();
+        setTimeout(() => setFormStatus({ type: null, message: '' }), 5000); // Clear after 5 seconds
       } else {
         const errorData = await response.json();
-        toast({
-          title: 'Error',
-          description: `Failed to send message: ${errorData.error || 'An unknown error occurred.'}`,
-          variant: 'destructive',
-        });
+        setFormStatus({ type: 'error', message: `Failed to send message: ${errorData.error || 'An unknown error occurred.'} ❌` });
+        setTimeout(() => setFormStatus({ type: null, message: '' }), 5000);
       }
     } catch (error: any) {
       console.error('Error sending email:', error);
-      toast({
-        title: 'Error',
-        description: 'An error occurred while sending the message.',
-        variant: 'destructive',
-      });
+      setFormStatus({ type: 'error', message: 'An error occurred while sending the message. ❌' });
+      setTimeout(() => setFormStatus({ type: null, message: '' }), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -208,7 +204,7 @@ export default function Home() {
 
   return (
     <>
-      <SiteHeader navItems={navItems}/>
+      <SiteHeader navItems={navItems} activeSection={activeSection}/>
 
       <section id="hero"
                className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-center"
@@ -346,8 +342,7 @@ export default function Home() {
               Get in touch with me.
             </p>
           </div>
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8" onSubmit={handleSubmit}
-                action="https://formspree.io/f/mgvkedrd" method="POST">
+          <form className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8" onSubmit={handleSubmit}>
             <div>
               <Input type="text" name="name" placeholder="Name" required
                      className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
@@ -359,7 +354,14 @@ export default function Home() {
               <Button className="bg-[#66FCF1] text-black hover:bg-[#45A29E]" type="submit" disabled={isSubmitting}>
                 {isSubmitting ? 'Submitting...' : 'Submit'}
               </Button>
-
+              {formStatus.message && (
+                <div className={cn(
+                  "mt-4 text-sm",
+                  formStatus.type === 'success' ? "text-green-500" : "text-red-500"
+                )} role="alert">
+                  {formStatus.message}
+                </div>
+              )}
             </div>
             <div className="text-white">
               <p>
