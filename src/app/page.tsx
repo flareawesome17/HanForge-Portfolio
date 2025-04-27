@@ -201,7 +201,7 @@ export default function Home() {
       <SiteHeader navItems={navItems} activeSection={activeSection}/>
 
       <section id="hero"
-               className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-center"
+               className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300"
                style={{backgroundImage: `url("https://res.cloudinary.com/dbpurstxt/image/upload/v1745557727/hanforge/profile_pictures/nwrp20kxuqblwdstnkgm.jpg")`}}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 px-4">
@@ -213,7 +213,7 @@ export default function Home() {
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
       </section>
 
-      <section id="about" className="container py-16">
+      <section id="about" className="container py-16 hover:bg-gray-900 transition-colors duration-300">
         <h2 className="text-3xl font-semibold mb-4 text-center">About Me</h2>
         <div className="md:flex items-center">
           <div className="md:w-2/5 flex justify-center">
@@ -222,7 +222,7 @@ export default function Home() {
               alt="Ernie Saavedra Jr Profile"
               width={250}
               height={250}
-              className="rounded-full mb-4 md:mb-0"
+              className="rounded-full mb-4 md:mb-0 hover:scale-110 transition-transform duration-300"
             />
           </div>
           <div className="md:w-3/5">
@@ -245,15 +245,15 @@ export default function Home() {
             </p>
             <div className="flex items-center justify-start mt-4 space-x-4">
               <a href="https://github.com/flareawesome17" target="_blank" rel="noopener noreferrer"
-                 className="hover:text-[#66FCF1]">
+                 className="hover:text-[#66FCF1] hover:scale-110 transition-transform duration-300">
                 <Github className="h-6 w-6"/>
               </a>
               <a href="https://www.facebook.com/erniesaavedra.villaroya" target="_blank" rel="noopener noreferrer"
-                 className="hover:text-[#66FCF1]">
+                 className="hover:text-[#66FCF1] hover:scale-110 transition-transform duration-300">
                 <Facebook className="h-6 w-6"/>
               </a>
               <a href="https://www.linkedin.com/in/ernie-saavedra-jr-55a758284/" target="_blank"
-                 rel="noopener noreferrer" className="hover:text-[#66FCF1]">
+                 rel="noopener noreferrer" className="hover:text-[#66FCF1] hover:scale-110 transition-transform duration-300">
                 <Linkedin className="h-6 w-6"/>
               </a>
             </div>
@@ -261,7 +261,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center">
+      <section id="skills" className="container py-16 flex flex-col items-center justify-center text-center hover:bg-gray-900 transition-colors duration-300">
         <h2 className="text-3xl font-semibold mb-4">Skills</h2>
         <div className="grid grid-cols-3 gap-6 w-full">
           {skills.map((skill) => (
@@ -276,7 +276,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="bg-[#1F2833] py-16">
+      <section id="projects" className="bg-[#1F2833] py-16 hover:bg-gray-800 transition-colors duration-300">
         <div className="container flex flex-col items-center justify-center text-center">
           <h2 className="text-3xl font-semibold mb-4 text-white">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -308,7 +308,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="container py-16">
+      <section id="experience" className="container py-16 hover:bg-gray-900 transition-colors duration-300">
         <h2 className="text-3xl font-semibold mb-4 text-center">Experience</h2>
         <div className="flex flex-col gap-8">
           {experiences.map((exp, index) => (
@@ -328,7 +328,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-16" style={{backgroundColor: '#2E2B2B'}}>
+      <section id="contact" className="py-16 hover:bg-gray-800 transition-colors duration-300" style={{backgroundColor: '#2E2B2B'}}>
         <div className="container">
           <div className="flex flex-col items-center justify-center text-center">
             <h2 className="text-3xl font-semibold mb-4 text-[#66FCF1]">Let's Connect</h2>
