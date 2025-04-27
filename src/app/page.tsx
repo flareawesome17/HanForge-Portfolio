@@ -25,6 +25,7 @@ import {cn} from '@/lib/utils';
 import {Input} from '@/components/ui/input';
 import {Textarea} from '@/components/ui/textarea';
 import Image from 'next/image';
+import {useToast} from '@/hooks/use-toast';
 
 const navItems = [
   {title: 'About', href: '#about'},
@@ -91,7 +92,8 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const observer = useRef<IntersectionObserver | null>(null);
   const [repos, setRepos] = useState<any[]>([]);
-  const [formStatus, setFormStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({type: null, message: ''});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const {toast} = useToast();
   const sections = [
     {id: 'about', threshold: 0.5},
     {id: 'skills', threshold: 0.5},
@@ -165,17 +167,10 @@ export default function Home() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitting(true);
+
     const form = event.target as HTMLFormElement;
-
     const formData = new FormData(form);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-
-    if (!name || !email || !message) {
-      setFormStatus({type: 'error', message: 'Please fill out all required fields.'});
-      return;
-    }
 
     try {
       const response = await fetch('https://formspree.io/f/mgvkedrd', {
@@ -187,15 +182,28 @@ export default function Home() {
       });
 
       if (response.ok) {
-        setFormStatus({type: 'success', message: 'Thank you for your message! We will be in touch soon.'});
-        form.reset(); // Clear the form
+        toast({
+          title: 'Success',
+          description: 'Thank you for your message! We will be in touch soon.',
+        });
+        form.reset();
       } else {
         const errorData = await response.json();
-        setFormStatus({type: 'error', message: `Failed to send message: ${errorData.error || 'An unknown error occurred.'}`});
+        toast({
+          title: 'Error',
+          description: `Failed to send message: ${errorData.error || 'An unknown error occurred.'}`,
+          variant: 'destructive',
+        });
       }
     } catch (error: any) {
       console.error('Error sending email:', error);
-      setFormStatus({type: 'error', message: 'An error occurred while sending the message.'});
+      toast({
+        title: 'Error',
+        description: 'An error occurred while sending the message.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -349,12 +357,10 @@ export default function Home() {
               <Input type="text" name="subject" placeholder="Subject (optional)"
                      className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
               <Textarea name="message" placeholder="Message" required className="mb-4 border-[#45A29E] focus:border-[#66FCF1]"/>
-              <Button className="bg-[#66FCF1] text-black hover:bg-[#45A29E]" type="submit">Submit</Button>
-               {formStatus.type && (
-                <p className={cn(formStatus.type === 'success' ? 'text-green-500' : 'text-red-500', 'mt-4 text-center')}>
-                  {formStatus.message}
-                </p>
-              )}
+              <Button className="bg-[#66FCF1] text-black hover:bg-[#45A29E]" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Submit'}
+              </Button>
+
             </div>
             <div className="text-white">
               <p>
