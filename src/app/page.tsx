@@ -89,7 +89,6 @@ async function getGithubRepos() {
 }
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('');
   const observer = useRef<IntersectionObserver | null>(null);
   const [repos, setRepos] = useState<any[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -209,7 +208,7 @@ export default function Home() {
 
   return (
     <>
-      <SiteHeader navItems={navItems} activeSection={activeSection}/>
+      <SiteHeader navItems={navItems}/>
 
       <section id="hero"
                className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-center"
