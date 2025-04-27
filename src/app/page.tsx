@@ -30,6 +30,7 @@ const navItems = [
   {title: 'About', href: '#about'},
   {title: 'Skills', href: '#skills'},
   {title: 'Projects', href: '#projects'},
+  {title: 'Experience', href: '#experience'},
   {title: 'Contact', href: '#contact'},
 ];
 
@@ -49,6 +50,37 @@ const skills = [
   {name: 'Arduino IoT', icon: ArduinoIoT, category: 'Other'},
 ];
 
+const experiences = [
+  {
+    title: 'MIS Staff',
+    company: 'Consolidated Coconut Corp.',
+    location: 'Panalsalan, Plaridel',
+    date: 'April 1, 2024 – Present',
+    description: 'Responsible for managing and maintaining all technology systems and servers at the CCC plant, ensuring optimal performance, security, and seamless operations.',
+  },
+  {
+    title: 'Tech Support',
+    company: 'Concentrix',
+    location: 'Makati',
+    date: 'October 2023 – March 2024',
+    description: 'Supported VR Meta Products with troubleshooting and technical assistance.',
+  },
+  {
+    title: 'Freelance Full Stack Web Developer',
+    company: 'Plaridel',
+    location: 'Misamis Occidental',
+    date: 'December 2020 – Present',
+    description: 'Accepted and completed capstone projects for students unfamiliar with coding, creating full systems and web applications. Volunteered to develop capstone projects free of charge to help students graduate successfully.',
+  },
+  {
+    title: 'IT Staff (Job Order)',
+    company: 'LGU-Plaridel',
+    location: 'Plaridel, Misamis Occidental',
+    date: 'July 2022 – October 2022',
+    description: 'Handled photo documentation, computer assembly, troubleshooting, and document encryption to maintain security and confidentiality for the LGU.',
+  },
+];
+
 async function getGithubRepos() {
   const response = await fetch('https://api.github.com/users/flareawesome17/repos?sort=updated&per_page=10');
   const repos = await response.json();
@@ -64,6 +96,7 @@ export default function Home() {
     {id: 'about', threshold: 0.5},
     {id: 'skills', threshold: 0.5},
     {id: 'projects', threshold: 0.5},
+    {id: 'experience', threshold: 0.5},
     {id: 'contact', threshold: 0.5},
   ];
 
@@ -272,6 +305,26 @@ export default function Home() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="experience" className="container py-16">
+        <h2 className="text-3xl font-semibold mb-4 text-center">Experience</h2>
+        <div className="flex flex-col gap-8">
+          {experiences.map((exp, index) => (
+            <Card key={index} className="bg-[#0B0C10] rounded-2xl p-6 shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-[#66FCF1] text-xl font-semibold">{exp.title}</CardTitle>
+                <CardDescription className="text-[#C5C6C7] text-sm">
+                  {exp.company} - {exp.location}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-[#C5C6C7]">
+                <p>{exp.date}</p>
+                <p>{exp.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
